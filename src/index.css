@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css2?family=Exo+2&display=swap");
+
+body {
+  margin: 0;
+  font-family: "Exo 2", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  font-size: 16px;
+}
+
+code {
+  font-family: "Exo 2", sans-serif;
+}
+
+#root {
+  overflow: hidden;
+  max-width: 100vw;
+  position: relative;
+}
+.link {
+  background-color: purple;
+  border-radius: 60px;
+  padding: 15px 30px;
+  text-decoration: none;
+  color: white;
+  min-width: 184px;
+  font-size: 16px;
+  transition: 250ms ease-in transform;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+a.disabled {
+  pointer-events: none;
+  background-color: lightgray;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin-top: 60px;
+  margin-bottom: 100px;
+}
+
+.createAccount:hover {
+  box-shadow: rgb(174 110 255) 0px 0px 16px;
+  transform: translateY(-2px);
+  animation: none;
+}
+.createAccount:focus {
+  box-shadow: rgb(174 110 255) 0px 0px 16px;
+  transform: translateY(-2px);
+  animation: none;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 20px rgba(204, 169, 44, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0px rgba(204, 169, 44, 0);
+  }
+}
+
+.createAccount {
+  background-color: green;
+  border-radius: 60px;
+  padding: 15px 30px;
+  color: white;
+  min-width: 184px;
+  transition: 250ms ease-in transform;
+  font-size: 16px;
+  animation: pulse 2s infinite;
+}
+
+.created {
+  animation: pulse 2s infinite;
+}
+
+.createAccount.created {
+  animation: none;
+}
+
+.link:hover.created {
+  box-shadow: rgb(174 110 255) 0px 0px 16px;
+  transform: translateY(-2px);
+  animation: none;
+}
+.link:focus.created {
+  box-shadow: rgb(174 110 255) 0px 0px 16px;
+  transform: translateY(-2px);
+  animation: none;
+}
+
+.link:active.created {
+  box-shadow: rgb(174 110 255) 0px 0px 16px;
+  transform: translateY(-2px);
+  animation: none;
+}
+
+.spin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 2;
+
+  transform-origin: 40px 40px;
+}
+
+footer {
+  margin: 16px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.none {
+  display: none;
+}
