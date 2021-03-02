@@ -1,4 +1,6 @@
-const Github = ({ github }) => (
+const Github = ({
+  github = "https://github.com/tomland123/solana-tutorial.git",
+}) => (
   <a
     href={github}
     style={{
