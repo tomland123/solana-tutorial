@@ -31,7 +31,9 @@ const AccountCard = ({ account = {}, balanceLoading }) => {
         )}
       </div>
 
-      {!!account?.balance && (
+      {balanceLoading ? (
+        <div>Loading New Balance...</div>
+      ) : !!account?.balance ? (
         <div
           style={{
             marginBottom: "20px",
@@ -40,9 +42,9 @@ const AccountCard = ({ account = {}, balanceLoading }) => {
           <h2>Balance</h2>
           {(account.balance / 1000000000).toFixed(9)} Sol
         </div>
+      ) : (
+        <div />
       )}
-
-      {balanceLoading && <div>loading</div>}
     </div>
   );
 };

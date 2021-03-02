@@ -24,7 +24,7 @@ import Link from "../Components/Link";
 
 const SendTransaction = ({ accountList, connection }) => {
   const [transaction, setTransactions] = useState(false);
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState("0.005");
   const [balanceLoading, setBalanceLoading] = useState(true);
   const [loading, setLoading] = useState(false);
 
@@ -32,7 +32,6 @@ const SendTransaction = ({ accountList, connection }) => {
     setLoading(true);
     const account = new Account(transaction?.[0].secretKey);
     const valueToSend = value * 1000000000;
-    console.log(valueToSend);
     const secondAccount = new PublicKey(transaction[1].publicKey.toString());
 
     const sendTransaction = new Transaction().add(
@@ -173,7 +172,10 @@ const SendTransaction = ({ accountList, connection }) => {
             >
               <Title>Sender Account</Title>
             </div>
-            <AccountCard account={transaction[0]} />
+            <AccountCard
+              account={transaction[0]}
+              balanceLoading={balanceLoading}
+            />
           </Col>
           <Col xs={2}>
             <div
@@ -199,7 +201,7 @@ const SendTransaction = ({ accountList, connection }) => {
             >
               <Title>Receiving Account</Title>
             </div>
-            <AccountCard account={transaction[1]} loadingBalance={loading} />
+            <AccountCard account={transaction[1]} />
           </Col>
         </Row>
 
@@ -218,8 +220,9 @@ const SendTransaction = ({ accountList, connection }) => {
                 borderBottom: "1px solid black",
               }}
               type="number"
-              placeholder="0.00500000"
               step="0.00000500"
+              min={0}
+              defaultValue={0.005}
               onChange={(e) => {
                 setValue(e.target.value);
               }}
