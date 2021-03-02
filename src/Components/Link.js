@@ -1,9 +1,13 @@
 import { Link as LinkBase } from "react-router-dom";
 import Ripple from "./Ripple";
 
-const Link = ({ to, children, className }) => {
+const Link = ({ to, children, className, style }) => {
   return (
-    <LinkBase className={className ? className + " link" : "link"} to={to}>
+    <LinkBase
+      style={style}
+      className={className ? className + " link" : "link"}
+      to={to}
+    >
       {children}
       <Ripple />
     </LinkBase>

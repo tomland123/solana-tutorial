@@ -15,9 +15,16 @@ const Success = () => {
         </Col>
       </Row>
 
-      <Section />
-
-      <Link to={`/`}>Go Back To Beginning</Link>
+      <Section>
+        <Link
+          style={{
+            marginLeft: "auto",
+          }}
+          to={`/`}
+        >
+          Go Back To Beginning
+        </Link>
+      </Section>
     </Container>
   );
 };

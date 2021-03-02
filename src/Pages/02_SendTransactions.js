@@ -28,21 +28,22 @@ const SendTransaction = ({ accountList, connection }) => {
   const [balanceLoading, setBalanceLoading] = useState(true);
   const [loading, setLoading] = useState(false);
 
-  const sendTransactions = async (e) => {
+  const sendTransactions = async () => {
     setLoading(true);
     const account = new Account(transaction?.[0].secretKey);
-
+    const valueToSend = value * 1000000000;
+    console.log(valueToSend);
     const secondAccount = new PublicKey(transaction[1].publicKey.toString());
 
-    const bloop = new Transaction().add(
+    const sendTransaction = new Transaction().add(
       SystemProgram.transfer({
         fromPubkey: account.publicKey,
         toPubkey: secondAccount,
-        lamports: value,
+        lamports: valueToSend,
       }),
     );
 
-    await sendAndConfirmTransaction(connection, bloop, [account], {
+    await sendAndConfirmTransaction(connection, sendTransaction, [account], {
       skipPreflight: true,
     });
 
@@ -203,7 +204,7 @@ const SendTransaction = ({ accountList, connection }) => {
         </Row>
 
         <Section />
-        <Section>
+        <Section className={"column-mobile"}>
           <div
             style={{
               display: "flex",
@@ -216,14 +217,18 @@ const SendTransaction = ({ accountList, connection }) => {
                 outline: "none",
                 borderBottom: "1px solid black",
               }}
+              type="number"
+              placeholder="0.00500000"
+              step="0.00000500"
               onChange={(e) => {
                 setValue(e.target.value);
               }}
             ></input>
-            <button onClick={sendTransactions}>
+            <button className={"send-transaction"} onClick={sendTransactions}>
               Send coins to new account
             </button>
           </div>
+          <div style={{ height: "20px" }} />
 
           <Link
             to={`/success`}

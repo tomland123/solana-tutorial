@@ -55,21 +55,20 @@ const CreateAccount = ({ createCoin, accountList }) => {
 
             justifyContent: "space-between",
           }}
+          className="column-mobile"
         >
-          <div>
-            <button
-              onClick={async () => {
-                setLoading(true);
-                await createCoin();
-                setLoading(false);
-              }}
-              className={`createAccount${
-                !!accountList.length ? " created" : ""
-              }`}
-            >
-              Create Account
-            </button>
-          </div>
+          <button
+            onClick={async () => {
+              setLoading(true);
+              await createCoin();
+              setLoading(false);
+            }}
+            className={`createAccount${!!accountList.length ? " created" : ""}`}
+          >
+            Create Account
+          </button>
+
+          <div style={{ height: "20px" }} />
 
           <Link
             to={`/send-transactions`}

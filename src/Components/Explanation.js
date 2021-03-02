@@ -26,8 +26,9 @@ export const ExplanationText = ({ children }) => {
   return <div style={{ marginTop: "20px" }}>{children}</div>;
 };
 
-export const Section = ({ children }) => (
+export const Section = ({ children, className }) => (
   <div
+    className={className}
     style={{
       marginTop: "40px",
       display: "flex",

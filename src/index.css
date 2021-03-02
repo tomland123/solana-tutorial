@@ -32,6 +32,11 @@ code {
   overflow: hidden;
 }
 
+button {
+  min-width: 184px;
+  font-size: 16px;
+}
+
 a.disabled {
   pointer-events: none;
   background-color: lightgray;
@@ -77,6 +82,15 @@ a.disabled {
   transition: 250ms ease-in transform;
   font-size: 16px;
   animation: pulse 2s infinite;
+}
+
+.send-transaction {
+  background-color: green;
+  border-radius: 60px;
+  color: white;
+  min-width: 184px;
+  padding: 15px 30px;
+  margin-left: 30px;
 }
 
 .created {
@@ -127,4 +141,19 @@ footer {
 
 .none {
   display: none;
+}
+
+@media all and (max-width: 900px) {
+  .column-mobile {
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  a.link {
+    width: 100%;
+    padding: 15px 0;
+  }
 }
